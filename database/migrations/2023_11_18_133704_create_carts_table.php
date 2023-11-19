@@ -18,13 +18,13 @@ return new class extends Migration
             $table->integer('qty');
             $table->bigInteger('price');
             $table->timestamps();
+
+            //relationship users
+            $table->foreign('cashier_id')->references('id')->on('users');
+
+            //relationship product
+            $table->foreign('product_id')->references('id')->on('products');
         });
-
-        //relationship users
-        $table->foreign('cashier_id')->references('id')->on('users');
-
-        //relationship product
-        $table->foreign('product_id')->references('id')->on('products');
     }
 
     /**

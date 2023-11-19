@@ -21,13 +21,13 @@ return new class extends Migration
             $table->bigInteger('discount');
             $table->bigInteger('grand_total');
             $table->timestamps();
+
+            //relationship user
+            $table->foreign('cashier_id')->references('id')->on('users');
+
+            //relationship customers
+            $table->foreign('customer_id')->references('id')->on('customers');
         });
-
-        //relationship user
-        $table->foreign('cashier_id')->references('id')->on('users');
-
-        //relationship customers
-        $table->foreign('customer_id')->references('id')->on('customers');
     }
 
     /**
